@@ -1,0 +1,9 @@
+{
+  "common": {
+    "aboutLink": "About Us",
+    "contactLink": "Contact Us"
+  },
+  "home": {
+    "title": "Welcome to shoezify.com."
+  }
+}
