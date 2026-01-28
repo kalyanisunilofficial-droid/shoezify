@@ -3,6 +3,7 @@ import Card from "../components/product/cards";
 import { getTranslations } from 'next-intl/server'; // Use the server version
 import { getProducts, getHeromageAndText } from "@/lib/queries"; // Standard import
 import { urlFor } from "@/lib/sanity";
+import { useTranslations } from "next-intl";
 
 export default async function Home({
   params,
@@ -11,19 +12,20 @@ export default async function Home({
 }) {
   const { locale } = await params;
   
-  // 1. Get translations for Server Components
+
   const t = await getTranslations({ locale, namespace: 'common' });
  
 
-  // 2. Fetch data
+
   const products = await getProducts(locale);
   const heroData = await getHeromageAndText(locale);
-  // const heroData = null; // For testing fallback
 
+
+ 
 
   const displayData = heroData || {
     title: t('hero'), 
-    // Add an image fallback if your Hero component requires one
+  
     image: "/images/hero2.jpg"
   
   };

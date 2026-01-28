@@ -1,10 +1,15 @@
 {
   "common": {
-    "aboutLink": "Chi Siamo",
-    "contactLink": "Contattaci",
     "hero": "Le nostre edizioni esclusive"
   },
   "home": {
     "title": "Benvenuto su shoezify.com."
+  },
+  "nav": {
+    "about": "Chi Siamo",
+    "contact": "Contatto",
+    "home": "Home",
+    "login": "Accesso",
+    "team": "Squadra"
   }
 }

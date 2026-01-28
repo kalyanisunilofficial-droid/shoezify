@@ -32,6 +32,7 @@ export const siteSettings = defineType({
             { name: "home", type: "string", title: "Home Label" },
             { name: "about", type: "string", title: "About Label" },
             { name: "contact", type: "string", title: "Contact Label" },
+             { name: "team", type: "string", title: "Team Label" },
             { name: "login", type: "string", title: "Login Label" },
           ],
         }),
@@ -44,6 +45,7 @@ export const siteSettings = defineType({
             { name: "home", type: "string", title: "Home Label" },
             { name: "about", type: "string", title: "About Label" },
             { name: "contact", type: "string", title: "Contact Label" },
+               { name: "team", type: "string", title: "Team Label" },
               { name: "login", type: "string", title: "Login Label" },
           ],
         }),
@@ -64,6 +66,7 @@ export const siteSettings = defineType({
             { name: "home", type: "string", title: "Home Label" },
             { name: "about", type: "string", title: "About Label" },
             { name: "contact", type: "string", title: "Contact Label" },
+            
             { name: "copyright", type: "string", title: "Copyright Label" },
           ],
         }),

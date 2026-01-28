@@ -8,6 +8,8 @@ import Footer from "../components/layout/footer";
 import {  getSiteSettings } from "@/lib/queries";
 import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
+import { getMessages, getTranslations } from "next-intl/server";
+import navbar from "../components/layout/navbar";
 
 
 
@@ -24,14 +26,28 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
- 
+ const messages = await getMessages();
+
+  const h =  await getTranslations({ locale, namespace: 'nav' });
 
 
   const settings = await getSiteSettings(locale);
   console.log("Layout settings:", settings)
+
+const navFallback = {
+    home: h('home'),
+    about: h('about'),
+    login: h('login'),
+    team: h('team'),
+    contact: h('contact')
+  };
+
   if (!supportedLocales.includes(locale as Locale)) {
     notFound();
   }
+console.log("Current Locale:", locale, "Translation:", messages);
+console.log("Navbar login text:", h);
+
 
   return (
     <html lang={locale}>
@@ -42,9 +58,11 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="antialiased">
-        <Navbar navText={settings?.navbar}></Navbar>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+          <Navbar navText={settings?.navbar} fallbackText={navFallback}></Navbar>
+        {children}
         <Footer footerText={settings?.footer}></Footer>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -20,6 +20,7 @@ export default function LanguageSwitcher() {
     const newPath = pathname.replace(/^\/(en|ml)/, `/${newLocale}`);
 
     console.log("Navigating to:", newPath);
+    console.log("From locale to locale:", newLocale);
 
     //
     // We use router.refresh() after push OR use window.location for a hard swap.
