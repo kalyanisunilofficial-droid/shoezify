@@ -9,7 +9,7 @@ export default function Footer({ footerText }: { footerText?: any }) {
   return (
     <footer className="flex flex-col space-y-10 justify-center m-10">
       <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
-        {/* Using Link instead of <a> for better performance */}
+       
         <Link className="hover:text-gray-900" href={`/${locale}`}>
           {footerText?.home || "Home"}
         </Link>

@@ -6,6 +6,14 @@ import "../globals.css";
 import Navbar from "../components/layout/navbar";
 import Footer from "../components/layout/footer";
 import {  getSiteSettings } from "@/lib/queries";
+import { NextIntlClientProvider } from "next-intl";
+import { routing } from "@/i18n/routing";
+
+
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
 
 export default async function LocaleLayout({
   children,
@@ -35,7 +43,7 @@ export default async function LocaleLayout({
       </head>
       <body className="antialiased">
         <Navbar navText={settings?.navbar}></Navbar>
-        {children}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <Footer footerText={settings?.footer}></Footer>
       </body>
     </html>

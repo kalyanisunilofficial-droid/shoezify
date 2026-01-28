@@ -1,7 +1,8 @@
 {
   "common": {
     "aboutLink": "About Us",
-    "contactLink": "Contact Us"
+    "contactLink": "Contact Us",
+    "hero": "Our Exclusive Editions"
   },
   "home": {
     "title": "Welcome to shoezify.com."
